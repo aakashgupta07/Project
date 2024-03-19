@@ -1,56 +1,65 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic Image Editor</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
-</head>
-<body>
-    <div class="container disable">
-      <h2>Basic Image Editor</h2>
-      <div class="wrapper">
-        <div class="editor-panel">
-          <div class="filter">
-            <label class="title">Filters</label>
-            <div class="option">
-              <button id="Brightness" class="active">Brightness</button>
-              <button id="Saturation">Saturation</button>
-              <button id="Inversion">Inversion</button>
-              <button id="Grayscale">Grayscale</button>
-            </div>
-            <div class="slider">
-              <div class="filter-info">
-                <p class="name">Brightness</p>
-                <p class="value">100%</p>
-              </div>
-              <input type="range" value="100" min="0" max="200">
-            </div>
-          </div>
-          <div class="rotate">
-            <label class="title">Rotate & Flip</label>
-            <div class="option">
-              <button id="left"><i class="fa-solid fa-rotate-left"></i></button>
-              <button id="right"><i class="fa-solid fa-rotate-right"></i></button>
-              <button id="horizontal"><i class="bx bx-reflect-vertical"></i></button>
-              <button id="vertical"><i class="bx bx-reflect-horizontal"></i></button>
-            </div>
-          </div>
-        </div>
-        <div class="img-preview">
-          <img src="image-placeholder.png" alt="Preview-img">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style1.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>Login landing page</title>
+  </head>
+  <body>
+    <section class="side">
+      <img src="img.svg" alt="" />
+    </section>
+
+    <section class="main">
+      <div class="login-container">
+        <p class="title">Welcome To <br> Easy Image Editor</p>
+        <div class="separator"></div>
+        <p class="welcome-message">
+          Please, provide login credential to proceed and have access to our
+          services
+        </p>
+
+        <div class="container">
+          <h2>Login</h2>
+          <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+            <input type="submit" value="Login" />
+          </form>
         </div>
       </div>
-      <div class="controls">
-        <button class="reset-filters">Rest Filters</button>
-        <div class="rows">
-          <input type="file" class="file-input" accept="image/*" hidden>
-          <button class="choose-img">Choose image</button>
-          <button class="save-img">Save image</button>
-        </div>
-      </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html> 
+    </section>
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from submitting
+
+          // Get the values from the form
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          // You can add your authentication logic here
+          // For this example, let's just check if the username is "admin" and password is "password"
+          if (username === "admin" && password === "password") {
+            alert("Login successful!");
+            window.location.href = "editor.html";
+            // Redirect to a new page or do something else after successful login
+          } else {
+            alert("Invalid username or password. Please try again.");
+          }
+        });   
+    </script>
+  </body>
+</html>
